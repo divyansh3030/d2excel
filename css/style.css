@@ -1,0 +1,201 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+    --primary: #4F46E5;
+    --secondary: #6366F1;
+    --dark: #111827;
+    --light: #F9FAFB;
+    --gray: #6B7280;
+}
+
+/* ================= GLOBAL ================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================= NAVBAR ================= */
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    color: var(--primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+}
+
+.btn-secondary {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* ================= HERO ================= */
+.hero {
+    padding: 80px 0;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--gray);
+    margin-bottom: 25px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ================= FEATURES ================= */
+.features {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 28px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    background: #F3F4F6;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ================= HOW IT WORKS ================= */
+.how-it-works {
+    padding: 80px 0;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.step {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1;
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.testimonial-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.testimonial-card {
+    background: #F3F4F6;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ================= CTA ================= */
+.cta {
+    padding: 60px 0;
+    text-align: center;
+    background: var(--primary);
+    color: white;
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
