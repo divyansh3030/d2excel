@@ -1,58 +1,48 @@
-// ================= INITIALIZATION =================
 document.addEventListener("DOMContentLoaded", async () => {
     await loadComponent("navbar", "components/navbar.html");
     await loadComponent("footer", "components/footer.html");
 
-    initNavbar();
-    initSmoothScroll();
+    initActiveLink();
+    initMobileMenu();
 });
 
-// ================= LOAD COMPONENT =================
 async function loadComponent(id, file) {
+    const target = document.getElementById(id);
+
+    if (!target) {
+        return;
+    }
+
     try {
-        const res = await fetch(file);
-        const data = await res.text();
-        document.getElementById(id).innerHTML = data;
+        const response = await fetch(file);
+        target.innerHTML = await response.text();
     } catch (error) {
-        console.error("Error loading component:", file);
+        console.error(`Unable to load ${file}`, error);
     }
 }
 
-// ================= NAVBAR =================
-function initNavbar() {
-    const header = document.querySelector(".header");
+function initActiveLink() {
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const navLinks = document.querySelectorAll(".nav-links a");
 
-    if (!header) return; // safety check
+    navLinks.forEach((link) => {
+        const linkPage = link.getAttribute("href");
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
-        } else {
-            header.style.boxShadow = "none";
+        if (linkPage === currentPage) {
+            link.classList.add("active");
         }
     });
 }
 
-// ================= SMOOTH SCROLL =================
-function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+function initMobileMenu() {
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav");
 
-    links.forEach(link => {
-        link.addEventListener("click", function (e) {
-            const targetId = this.getAttribute("href");
+    if (!toggle || !nav) {
+        return;
+    }
 
-            if (targetId === "#") return;
-
-            const target = document.querySelector(targetId);
-
-            if (target) {
-                e.preventDefault();
-
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: "smooth"
-                });
-            }
-        });
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
     });
 }
